@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -16,10 +17,14 @@ import com.example.Activities.R;
 public class MainActivity extends AppCompatActivity {
     private String VisiteursUrl = "192.168.210.4/cakephp/visiteurs.json";
 
+    private TextView textViewTest;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        openVisitesDatas();
     }
 
     private void openVisitesDatas() {
@@ -32,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     resultat+=prev.toString();
                 }
 
-                textViewPrevisions.setText(resultat);
+                textViewTest.setText(resultat);
             }
         },
                 new Response.ErrorListener() {
