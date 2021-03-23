@@ -22,9 +22,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
+        textViewTest = findViewById(R.id.test);
+
         openVisitesDatas();
+
     }
 
     private void openVisitesDatas() {
@@ -37,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     resultat+=prev.toString();
                 }
 
-                textViewTest.setText(resultat);
+                textViewTest.setText("ergojdrog");
             }
         },
                 new Response.ErrorListener() {
