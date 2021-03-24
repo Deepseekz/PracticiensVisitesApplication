@@ -15,7 +15,7 @@ import com.android.volley.VolleyError;
 import com.example.Activities.R;
 
 public class MainActivity extends AppCompatActivity {
-    private String VisiteursUrl = "192.168.210.4/cakephp/visiteurs.json";
+    final private String visiteursUrl = "http://192.168.210.4/cakephp/index.php/visiteurs.json";
 
     private TextView textViewTest;
 
@@ -33,15 +33,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void openVisitesDatas() {
 
-        final GsonRequest gsonRequest = new GsonRequest(VisiteursUrl, Visiteurs.class, null, new Response.Listener<Visiteurs>() {
+        final GsonRequest gsonRequest = new GsonRequest(visiteursUrl, Visiteurs.class, null, new Response.Listener<Visiteurs>() {
             @Override
             public void onResponse(Visiteurs visiteurs) {
                 String resultat="";
-                for (Visiteur prev : visiteurs.getLesVisiteurs()) {
+                for (Visiteur prev : visiteurs.getVisiteurs()) {
                     resultat+=prev.toString();
                 }
 
-                textViewTest.setText("ergojdrog");
+                textViewTest.setText(resultat);
             }
         },
                 new Response.ErrorListener() {

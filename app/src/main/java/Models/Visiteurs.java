@@ -3,24 +3,24 @@ package Models;
 import java.util.ArrayList;
 
 public class Visiteurs {
-    private ArrayList<Visiteur> lesVisiteurs;
+    private ArrayList<Visiteur> visiteurs;
 
     public Visiteurs(ArrayList<Visiteur> desVisiteurs) {
-        this.lesVisiteurs = desVisiteurs;
+        this.visiteurs = desVisiteurs;
     }
 
-    public ArrayList<Visiteur> getLesVisiteurs() {
-        return lesVisiteurs;
+    public ArrayList<Visiteur> getVisiteurs() {
+        return visiteurs;
     }
 
-    public void setLesVisiteurs(ArrayList<Visiteur> lesVisiteurs) {
-        this.lesVisiteurs = lesVisiteurs;
+    public void setVisiteurs(ArrayList<Visiteur> visiteurs) {
+        this.visiteurs = visiteurs;
     }
 
     @Override
     public String toString() {
         return "Visiteurs{" +
-                "lesVisiteurs=" + lesVisiteurs +
+                "lesVisiteurs=" + visiteurs +
                 '}';
     }
 }
