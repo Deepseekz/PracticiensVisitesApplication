@@ -3,7 +3,6 @@ package Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import Models.Visiteur;
@@ -15,10 +14,10 @@ import com.example.Activities.R;
 import java.util.List;
 
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
+public class RecyclerViewAdapterVisites extends RecyclerView.Adapter<RecyclerViewAdapterVisites.RecyclerViewHolder> {
     private List<Visiteur> dataModelList;
 
-    public RecyclerViewAdapter(List<Visiteur> dataModelList) {
+    public RecyclerViewAdapterVisites(List<Visiteur> dataModelList) {
         this.dataModelList = dataModelList;
     }
 
@@ -33,8 +32,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.textViewNom.setText(String.valueOf(dataModelList.get(position).getNom()));
-        holder.textViewPrenom.setText(dataModelList.get(position).getPrenom());
+        holder.textViewDate.setText(String.valueOf(dataModelList.get(position).getDateVisite()));
     }
 
     @Override
@@ -48,13 +46,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewNom, textViewPrenom;
+        TextView textViewDate;
 
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewNom = itemView.findViewById(R.id.tvNom);
-            textViewPrenom = itemView.findViewById(R.id.tvPrenom);
+            textViewDate = itemView.findViewById(R.id.tvNom);
         }
     }
 }

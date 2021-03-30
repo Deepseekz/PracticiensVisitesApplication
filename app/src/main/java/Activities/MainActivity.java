@@ -1,6 +1,8 @@
 package Activities;
 
-import Adapters.RecyclerViewAdapter;
+import Adapters.RecyclerViewAdapterVisiteurs;
+import Interfaces.RecyclerViewClickListener;
+import Listeners.RecyclerTouchListener;
 import Models.GsonRequest;
 import Models.Visiteur;
 import Models.Visiteurs;
@@ -8,23 +10,22 @@ import Models.VolleyHelper;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.example.Activities.R;
 import com.example.Activities.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    private String visiteursUrl = "http://192.168.210.4/cakephp/visiteurs.json";
-    private RecyclerViewAdapter adapter;
+    final private String visiteursUrl = "http://192.168.210.4/cakephp/visiteurs.json";
+    private RecyclerViewAdapterVisiteurs adapter;
     private ArrayList<Visiteur> list = new ArrayList<>();
 
     @Override
@@ -36,13 +37,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(view);
         initializeUI();
         openVisitesDatas();
+
+        binding.rvVisiteurs.addOnItemTouchListener(new RecyclerTouchListener(this, binding.rvVisiteurs, new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Toast.makeText(MainActivity.this, "u clicked", Toast.LENGTH_SHORT).show();
+                Intent intentVisiteurDetails = new Intent(getApplicationContext(), VisiteurActivity.class);
+                intentVisiteurDetails.putExtra("visiteurID", 5);
+                startActivity(intentVisiteurDetails);
+            }
+        }));
     }
 
     private void initializeUI() {
-        binding.rvPraticiens.setHasFixedSize(true);
+        binding.rvVisiteurs.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
-        binding.rvPraticiens.setLayoutManager(layoutManager);
-        binding.rvPraticiens.setFocusable(false);
+        binding.rvVisiteurs.setLayoutManager(layoutManager);
+        binding.rvVisiteurs.setFocusable(false);
 
     }
 
@@ -51,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         final GsonRequest gsonRequest = new GsonRequest(visiteursUrl, Visiteurs.class, null, new Response.Listener<Visiteurs>() {
             @Override
             public void onResponse(Visiteurs visiteurs) {
-                adapter = new RecyclerViewAdapter(visiteurs.getVisiteurs());
-                binding.rvPraticiens.setAdapter(adapter);
+                adapter = new RecyclerViewAdapterVisiteurs(visiteurs.getVisiteurs());
+                binding.rvVisiteurs.setAdapter(adapter);
             }
         },
                 new Response.ErrorListener() {
@@ -62,5 +73,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         VolleyHelper.getInstance(getApplicationContext()).addToRequestQueue(gsonRequest);
+
     }
+
+
 }

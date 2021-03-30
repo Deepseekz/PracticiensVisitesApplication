@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.ArrayList;
+
 public class Visiteur {
     private int id;
     private String matricule;
@@ -11,6 +13,16 @@ public class Visiteur {
     private String mail;
     private String dateEmbauche;
 
+    public ArrayList<Visite> getVisites() {
+        return visites;
+    }
+
+    public void setVisites(ArrayList<Visite> visites) {
+        this.visites = visites;
+    }
+
+    private ArrayList<Visite> visites;
+
     public Visiteur(int unId, String unMatricule, String unUsername, String unPassword, String unNom, String unPrenom, String unTel, String unMail, String uneDateEmbauche) {
         this.id = unId;
         this.matricule = unMatricule;
@@ -21,6 +33,7 @@ public class Visiteur {
         this.tel = unTel;
         this.mail = unMail;
         this.dateEmbauche = uneDateEmbauche;
+        this.visites = new ArrayList<>();
     }
 
     public int getId() {
