@@ -12,6 +12,7 @@ public class Visiteur {
     private String tel;
     private String mail;
     private String dateEmbauche;
+    private ArrayList<Visite> visites;
 
     public ArrayList<Visite> getVisites() {
         return visites;
@@ -21,7 +22,6 @@ public class Visiteur {
         this.visites = visites;
     }
 
-    private ArrayList<Visite> visites;
 
     public Visiteur(int unId, String unMatricule, String unUsername, String unPassword, String unNom, String unPrenom, String unTel, String unMail, String uneDateEmbauche) {
         this.id = unId;

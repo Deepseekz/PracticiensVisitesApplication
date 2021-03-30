@@ -11,6 +11,7 @@ import com.example.Activities.databinding.ActivityVisitesBinding;
 
 import java.util.ArrayList;
 
+import Adapters.RecyclerViewAdapterVisites;
 import Adapters.RecyclerViewAdapterVisiteurs;
 import Interfaces.RecyclerViewClickListener;
 import Models.GsonRequest;
@@ -21,9 +22,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 public class VisiteurActivity extends AppCompatActivity {
-    final private String visiteurUrl = "http://192.168.210.4/cakephp/visiteurs.json";
+    final private String visiteurUrl = "http://192.168.210.4/cakephp/visiteurs/view/6.json";
     private ActivityVisitesBinding binding;
-    private RecyclerViewAdapterVisiteurs adapter;
+    private RecyclerViewAdapterVisites adapter;
     private ArrayList<Visiteur> list = new ArrayList<>();
 
     @Override
@@ -31,7 +32,6 @@ public class VisiteurActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityVisitesBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
-        setContentView(view);
 
         setContentView(view);
         initializeUI();
@@ -48,10 +48,10 @@ public class VisiteurActivity extends AppCompatActivity {
 
     private void openVisitesDatas() {
 
-        final GsonRequest gsonRequest = new GsonRequest(visiteurUrl, Visiteurs.class, null, new Response.Listener<Visiteurs>() {
+        final GsonRequest gsonRequest = new GsonRequest(visiteurUrl, Visiteur.class, null, new Response.Listener<Visiteur>() {
             @Override
-            public void onResponse(Visiteurs visiteurs) {
-                adapter = new RecyclerViewAdapterVisiteurs(visiteurs.getVisiteurs());
+            public void onResponse(Visiteur visiteur) {
+                adapter = new RecyclerViewAdapterVisites(visiteur.getVisites());
                 binding.rvVisites.setAdapter(adapter);
             }
         },
@@ -64,5 +64,5 @@ public class VisiteurActivity extends AppCompatActivity {
         VolleyHelper.getInstance(getApplicationContext()).addToRequestQueue(gsonRequest);
 
     }
-    }
+
 }

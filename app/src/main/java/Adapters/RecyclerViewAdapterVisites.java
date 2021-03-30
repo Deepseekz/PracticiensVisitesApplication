@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import Models.Visite;
 import Models.Visiteur;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,9 +16,9 @@ import java.util.List;
 
 
 public class RecyclerViewAdapterVisites extends RecyclerView.Adapter<RecyclerViewAdapterVisites.RecyclerViewHolder> {
-    private List<Visiteur> dataModelList;
+    private List<Visite> dataModelList;
 
-    public RecyclerViewAdapterVisites(List<Visiteur> dataModelList) {
+    public RecyclerViewAdapterVisites(List<Visite> dataModelList) {
         this.dataModelList = dataModelList;
     }
 
@@ -25,7 +26,7 @@ public class RecyclerViewAdapterVisites extends RecyclerView.Adapter<RecyclerVie
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         RecyclerViewHolder viewHolder;
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_list_visiteur, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_list_visite, parent, false);
         viewHolder = new RecyclerViewHolder(view);
         return viewHolder;
     }

@@ -4,6 +4,7 @@ import Adapters.RecyclerViewAdapterVisiteurs;
 import Interfaces.RecyclerViewClickListener;
 import Listeners.RecyclerTouchListener;
 import Models.GsonRequest;
+import Models.Visite;
 import Models.Visiteur;
 import Models.Visiteurs;
 import Models.VolleyHelper;
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     final private String visiteursUrl = "http://192.168.210.4/cakephp/visiteurs.json";
     private RecyclerViewAdapterVisiteurs adapter;
-    private ArrayList<Visiteur> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view, int position) {
                 Toast.makeText(MainActivity.this, "u clicked", Toast.LENGTH_SHORT).show();
                 Intent intentVisiteurDetails = new Intent(getApplicationContext(), VisiteurActivity.class);
-                intentVisiteurDetails.putExtra("visiteurID", 5);
+
+                intentVisiteurDetails.putExtra("");
                 startActivity(intentVisiteurDetails);
             }
         }));
