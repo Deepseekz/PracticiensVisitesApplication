@@ -6,6 +6,12 @@ import java.util.ArrayList;
 public class Visiteurs implements Serializable {
     private ArrayList<Visiteur> visiteurs;
 
+    public Visiteur getVisiteur() {
+        return visiteur;
+    }
+
+    private Visiteur visiteur;
+
     public Visiteurs(ArrayList<Visiteur> desVisiteurs) {
         this.visiteurs = desVisiteurs;
     }

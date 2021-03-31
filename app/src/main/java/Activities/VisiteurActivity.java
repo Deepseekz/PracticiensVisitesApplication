@@ -10,6 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.Activities.databinding.ActivityVisiteurBinding;
 
+import java.io.Console;
 import java.util.ArrayList;
 
 import Adapters.RecyclerViewAdapterVisites;
@@ -44,6 +45,7 @@ public class VisiteurActivity extends AppCompatActivity {
         binding.tvTel.setText(visiteur.getTel());
         binding.tvMail.setText(visiteur.getMail());
 
+
         setContentView(view);
         initializeUI();
         openVisitesDatas();
@@ -59,10 +61,10 @@ public class VisiteurActivity extends AppCompatActivity {
 
     private void openVisitesDatas() {
 
-        final GsonRequest gsonRequest = new GsonRequest(visiteurUrl + visiteur.getId() + ".json", Visiteur.class, null, new Response.Listener<Visiteur>() {
+        final GsonRequest gsonRequest = new GsonRequest(visiteurUrl + visiteur.getId() + ".json", Visiteurs.class, null, new Response.Listener<Visiteurs>() {
             @Override
-            public void onResponse(Visiteur visiteur) {
-                list = new ArrayList<>(visiteur.getVisites());
+            public void onResponse(Visiteurs visiteurs) {
+                list = new ArrayList<>(visiteurs.getVisiteur().getVisites());
                 adapter = new RecyclerViewAdapterVisites(list);
                 binding.rvVisites.setAdapter(adapter);
             }
