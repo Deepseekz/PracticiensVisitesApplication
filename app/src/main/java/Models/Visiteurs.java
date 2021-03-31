@@ -1,8 +1,9 @@
 package Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Visiteurs {
+public class Visiteurs implements Serializable {
     private ArrayList<Visiteur> visiteurs;
 
     public Visiteurs(ArrayList<Visiteur> desVisiteurs) {

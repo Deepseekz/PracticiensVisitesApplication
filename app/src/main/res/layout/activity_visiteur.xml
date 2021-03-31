@@ -109,7 +109,7 @@
     android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Visite de <Inserez Prenom>"></TextView>
+        android:text="Visite de Inserez Prenom"></TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginHorizontal="20dp"

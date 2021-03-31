@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     final private String visiteursUrl = "http://192.168.210.4/cakephp/visiteurs.json";
     private RecyclerViewAdapterVisiteurs adapter;
+    private ArrayList<Visiteur> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
         binding.rvVisiteurs.addOnItemTouchListener(new RecyclerTouchListener(this, binding.rvVisiteurs, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Toast.makeText(MainActivity.this, "u clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "vous avez cliquer", Toast.LENGTH_SHORT).show();
                 Intent intentVisiteurDetails = new Intent(getApplicationContext(), VisiteurActivity.class);
 
-                intentVisiteurDetails.putExtra("");
+                intentVisiteurDetails.putExtra("visiteur", list.get(position));
                 startActivity(intentVisiteurDetails);
             }
         }));
@@ -63,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
         final GsonRequest gsonRequest = new GsonRequest(visiteursUrl, Visiteurs.class, null, new Response.Listener<Visiteurs>() {
             @Override
             public void onResponse(Visiteurs visiteurs) {
-                adapter = new RecyclerViewAdapterVisiteurs(visiteurs.getVisiteurs());
+                list = new ArrayList<>(visiteurs.getVisiteurs());
+                adapter = new RecyclerViewAdapterVisiteurs(list);
                 binding.rvVisiteurs.setAdapter(adapter);
             }
         },

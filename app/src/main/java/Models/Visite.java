@@ -1,6 +1,8 @@
 package Models;
 
-public class Visite {
+import java.io.Serializable;
+
+public class Visite implements Serializable {
     private int id;
     private String dateVisite;
     private String commentaire;

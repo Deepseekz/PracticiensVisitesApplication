@@ -52,7 +52,7 @@ public class RecyclerViewAdapterVisites extends RecyclerView.Adapter<RecyclerVie
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewDate = itemView.findViewById(R.id.tvNom);
+            textViewDate = itemView.findViewById(R.id.tvDate);
         }
     }
 }
