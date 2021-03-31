@@ -34,6 +34,7 @@ public class RecyclerViewAdapterVisites extends RecyclerView.Adapter<RecyclerVie
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         holder.textViewDate.setText(String.valueOf(dataModelList.get(position).getDateVisite()));
+        holder.textViewCommentaire.setText(String.valueOf(dataModelList.get(position).getCommentaire()));
     }
 
     @Override
@@ -47,12 +48,14 @@ public class RecyclerViewAdapterVisites extends RecyclerView.Adapter<RecyclerVie
 
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewDate;
+        TextView textViewDate, textViewCommentaire;
 
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewDate = itemView.findViewById(R.id.tvDate);
+            textViewCommentaire = itemView.findViewById(R.id.tvCommentaire);
+
         }
     }
 }
