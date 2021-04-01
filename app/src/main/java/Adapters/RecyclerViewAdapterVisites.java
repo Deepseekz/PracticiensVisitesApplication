@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.Activities.R;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -33,7 +34,9 @@ public class RecyclerViewAdapterVisites extends RecyclerView.Adapter<RecyclerVie
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.textViewDate.setText(String.valueOf(dataModelList.get(position).getDateVisite()));
+        holder.textViewDate.setText(String.valueOf(dataModelList.get(position).getDateVisite().substring(0, 10).replace("-", "/")));
+
+
         holder.textViewCommentaire.setText(String.valueOf(dataModelList.get(position).getCommentaire()));
     }
 

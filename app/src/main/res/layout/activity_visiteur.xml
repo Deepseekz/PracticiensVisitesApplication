@@ -6,40 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="5dp">
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Matricule : "></TextView>
-    <TextView
-        android:id="@+id/tvMatricule"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Test"></TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="5dp">
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Pseudonyme : "></TextView>
-        <TextView
-            android:id="@+id/tvPseudonyme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Test"></TextView>
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

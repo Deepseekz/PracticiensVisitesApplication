@@ -32,8 +32,9 @@ public class RecyclerViewAdapterVisiteurs extends RecyclerView.Adapter<RecyclerV
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
-        holder.textViewNom.setText(String.valueOf(dataModelList.get(position).getNom()));
-        holder.textViewPrenom.setText(dataModelList.get(position).getPrenom());
+        holder.textViewNomPrenom.setText(String.valueOf(dataModelList.get(position).getNom()) + " " + String.valueOf(dataModelList.get(position).getPrenom()));
+        holder.textViewMail.setText(dataModelList.get(position).getMail());
+        holder.textViewMatricule.setText(dataModelList.get(position).getMatricule());
     }
 
     @Override
@@ -47,13 +48,14 @@ public class RecyclerViewAdapterVisiteurs extends RecyclerView.Adapter<RecyclerV
 
 
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewNom, textViewPrenom;
+        TextView textViewNomPrenom, textViewMail, textViewMatricule;
 
 
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewNom = itemView.findViewById(R.id.tvNom);
-            textViewPrenom = itemView.findViewById(R.id.tvPrenom);
+            textViewNomPrenom = itemView.findViewById(R.id.tvNomPrenom);
+            textViewMail = itemView.findViewById(R.id.tvMail);
+            textViewMatricule = itemView.findViewById(R.id.tvMatricule);
         }
     }
 }

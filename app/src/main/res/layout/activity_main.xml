@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E2060D"
     tools:context="Activities.MainActivity">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#004EA5"
+            android:gravity="center"
+            android:text="Praticiens Visites Application"
+            android:textAlignment="center"
+            android:textColor="#E2060D"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/txtSousTitre"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:background="#F7E900"
+            android:gravity="center"
+            android:text="Liste de praticiens"
+            android:textAlignment="center"
+            android:textColor="#E2060D"
+            android:textSize="16sp" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvVisiteurs"
+        android:layout_margin="15dp"
+        android:background="#004EA5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="167dp"
         tools:layout_editor_absoluteY="35dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,23 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginVertical="25dp">
+    android:background="#F7E900"
+    android:layout_marginVertical="10dp">
 
     <TextView
-        android:id="@+id/tvNom"
-        android:layout_width="match_parent"
+        android:id="@+id/tvNomPrenom"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="555"></TextView>
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:textColor="#DF0A13"
+        android:text="555"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMatricule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.411"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"></TextView>
 
     <TextView
-        android:id="@+id/tvPrenom"
-        android:layout_width="match_parent"
+        android:id="@+id/tvMail"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="555"></TextView>
-</LinearLayout>
+        android:layout_margin="5dp"
+        android:textColor="#004DA7"
+        android:gravity="center"
+        android:text="555"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvNomPrenom"
+        app:layout_constraintStart_toStartOf="@+id/tvNomPrenom"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomPrenom"
+        app:layout_constraintVertical_bias="0.4"></TextView>
+
+    <TextView
+        android:id="@+id/tvMatricule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="error"
+        android:textColor="#004DA7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvNomPrenom"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
